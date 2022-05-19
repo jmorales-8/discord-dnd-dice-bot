@@ -1,0 +1,17 @@
+{
+  "name": "dnd-dice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sapphire/time-utilities": "^1.7.4",
+    "colorette": "^2.0.16",
+    "discord.js": "^13.6.0"
+  }
+}

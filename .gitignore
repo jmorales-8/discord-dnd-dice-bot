@@ -1,0 +1,26 @@
+# VSCode IDE from https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# npm stuff that doesn't need to be included
+package-lock.json
+
+# Discord config file (contains token so do not upload this.)
+token.json
