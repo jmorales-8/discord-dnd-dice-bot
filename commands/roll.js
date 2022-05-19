@@ -1,24 +1,13 @@
 exports.run = (client, message, args) => {
-    if (!args || args.length < 1) return message.reply("Must provide a command name to reload.");
+    if (!args || args.length < 1) return message.reply("Error: Must provide a command name to reload.");
     const rollArg = args[0];
     const fullRegExp = /^(?<dieCount>\d*)?[Dd](?<dieSize>\d+)(?:(?<additionSign>[\+\-])(?<additionCount>\d))?(?:(?<keepMode>[Kk][Ll]?)(?<keepCount>\d+))?(?:[Xx](?<multiplyCount>\d+))?(?<sortMode>[Ss][Aa]?)?$/;
     // Check if the roll is valid
     if (fullRegExp.test(rollArg.toLowerCase())) {
         const matches = rollArg.match(fullRegExp);
 
-        console.log(matches);
-        //console.log(matches.groups.dieCount);
-        //console.log(matches.groups.dieSize);
-
-        // const dieSizeMatch = rollArg.match(/(?<=[Dd])\d+/);
-        // const keepCountMatch = rollArg.match(/(?<=[Kk])\d+/);
-        // const keepLowCountMatch = rollArg.match(/(?<=[Ll])\d+/);
-        // const multiplierMatch = rollArg.match(/(?<=[Xx])\d+/);
-        // const sortMatch = /[Ss][Aa]?/.test(rollArg)
-
-        // console.log(dieCountMatch);
-        // console.log(dieSizeMatch);
-
+        //console.log(matches);
+        
         let dieCount = parseInt(matches.groups.dieCount);
         let dieSize = parseInt(matches.groups.dieSize);
         let additionSign = matches.groups.additionSign;
@@ -41,11 +30,12 @@ exports.run = (client, message, args) => {
         }
 
         if (!(dieCount > 0 && dieSize > 0 && dieCount < 1001 && dieSize < 1000001 && multiplyCount > 0 && multiplyCount < 101)) {
-            return message.reply(`Invalid arguments (put example args here...) ${dieCount}, ${dieSize}, ${keepMode}, ${keepCount}, ${multiplyCount}, ${sortMode}`);
+            return message.reply(`Error: Invalid arguments (put example args here...) ${dieCount}, ${dieSize}, ${keepMode}, ${keepCount}, ${multiplyCount}, ${sortMode}`);
         }
 
         if (keepMode != null && keepCount > dieCount) {
-            console.log("\`\`\`Error: Number of dice kept is more than rolled...\`\`\`");
+            //console.log("\`\`\`Error: Number of dice kept is more than rolled...\`\`\`");
+            return message.reply("\`\`\`Error: Number of dice kept is more than rolled...\`\`\`")
         }
 
 
@@ -103,7 +93,7 @@ exports.run = (client, message, args) => {
 
     }
     else {
-        return message.reply("Invalid arguments (put example args here...)");
+        return message.reply("Error: Invalid arguments (put example args here...)");
     }
 };
 
