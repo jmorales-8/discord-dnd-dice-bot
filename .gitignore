@@ -22,5 +22,5 @@ jspm_packages/
 # npm stuff that doesn't need to be included
 package-lock.json
 
-# Discord config file (contains token so do not upload this.)
+# Discord config file (contains client token so do not upload this.)
 token.json
