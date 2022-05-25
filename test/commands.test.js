@@ -4,6 +4,8 @@ let help = require('../commands/help.js');
 let reload = require('../commands/reload.js');
 let roll = require('../commands/roll.js');
 
+const { Collection } = require("discord.js");
+
 // All commands run the reply function on the message object that is passed in. 
 // This is a dummy message object that just returns the message content of the result of the command being called.
 
@@ -17,8 +19,7 @@ const slashcmds = new Collection();
 dummyClient.container = {
   commands,
   aliases,
-  slashcmds,
-  config
+  slashcmds
 };
 
 let dummyMessage = {
@@ -59,7 +60,7 @@ describe('Command tests', function () {
       });
 
       it('Bad arg test', function () {
-        const result = roll.run(null, dummyMessage, [""], null);
+        const result = roll.run(null, dummyMessage, ["badarg"], null);
         if (!result.startsWith("Error"))
           assert.fail();
       });
