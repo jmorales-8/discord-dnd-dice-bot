@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    if (!args || args.length < 1) return message.reply("Error: Must provide a command name to reload.");
+    if (!args || args.length !== 1) return message.reply("Error: Number of arguments is not equal to 1.");
     const rollArg = args[0];
     const fullRegExp = /^(?<dieCount>\d*)?[Dd](?<dieSize>\d+)(?:(?<additionSign>[\+\-])(?<additionCount>\d))?(?:(?<keepMode>[Kk][Ll]?)(?<keepCount>\d+))?(?:[Xx](?<multiplyCount>\d+))?(?<sortMode>[Ss][Aa]?)?$/;
     // Check if the roll is valid
@@ -34,8 +34,8 @@ exports.run = (client, message, args) => {
         }
 
         if (keepMode != null && keepCount > dieCount) {
-            //console.log("\`\`\`Error: Number of dice kept is more than rolled...\`\`\`");
-            return message.reply("\`\`\`Error: Number of dice kept is more than rolled...\`\`\`")
+            //console.log("Error: Number of dice kept is more than rolled...");
+            return message.reply("Error: Number of dice kept is more than rolled...")
         }
 
 
