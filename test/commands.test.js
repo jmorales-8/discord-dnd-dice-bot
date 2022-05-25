@@ -34,6 +34,12 @@ describe('Command tests', function () {
 
     describe('Bad arg tests', function () {
 
+      it('Bad command name arg test', function () {
+        const result = roll.run(null, dummyMessage, ["nonexistantcommandname"], null);
+        if (!result.startsWith("Error"))
+          assert.fail();
+      });
+
     });
 
     describe('Good arg tests', function () {
@@ -59,7 +65,7 @@ describe('Command tests', function () {
           assert.fail();
       });
 
-      it('Bad arg test', function () {
+      it('Bad command name arg test', function () {
         const result = roll.run(null, dummyMessage, ["badarg"], null);
         if (!result.startsWith("Error"))
           assert.fail();
